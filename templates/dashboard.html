@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AuthShield — Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="dashboard">
+
+  <div class="flash-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <nav class="dash-nav">
+    <div class="dash-brand">
+      <div class="dash-brand-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
+      </div>
+      <span class="dash-brand-name">Auth<span>Shield</span></span>
+    </div>
+    <button class="dash-logout" id="logoutBtn">Sign out</button>
+  </nav>
+
+  <main class="dash-main">
+    <div class="dash-status">
+      <span class="dash-status-dot"></span>
+      Session active
+    </div>
+    <div class="dash-welcome">Welcome back.</div>
+    <div class="dash-note">
+      Your session will expire after 10 minutes of inactivity. Stay active to remain signed in.
+    </div>
+
+    <div class="dash-card-row">
+      <div class="dash-card">
+        <div class="dash-card-label">Status</div>
+        <div class="dash-card-value">Authenticated</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Timeout</div>
+        <div class="dash-card-value" id="timeoutDisplay">10:00</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Protocol</div>
+        <div class="dash-card-value">HTTPS / TLS</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="dash-footer">
+    Built by
+    <a href="https://github.com/heynick1337" target="_blank">Nikhil Sahu</a>
+    <span class="sep">·</span>
+    <a href="https://linkedin.com/in/sahunikhil01" target="_blank">LinkedIn</a>
+  </footer>
+
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

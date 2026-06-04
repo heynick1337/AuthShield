@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuthShield — Create account</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+
+  <div class="flash-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="auth-wrap">
+
+    <div class="brand">
+      <div class="brand-mark">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6L12 2z"/></svg>
+        </div>
+        <span class="brand-name">Auth<span>Shield</span></span>
+      </div>
+      <div class="brand-tagline">Secure authentication system</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Create an account</div>
+      <div class="card-sub">Get started — it only takes a moment</div>
+
+      <form id="signupForm" method="POST" action="{{ url_for('register') }}">
+
+        <div class="field">
+          <label class="field-label" for="email">Email</label>
+          <input class="field-input" type="email" id="email" name="email"
+                 placeholder="you@example.com" autocomplete="email" />
+          <div id="email-error" class="field-error hidden">Enter a valid email address</div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="password">Password</label>
+          <input class="field-input" type="password" id="password" name="password"
+                 placeholder="Create a strong password" autocomplete="new-password" />
+          <ul class="pw-rules">
+            <li id="req-length">8+ characters</li>
+            <li id="req-upper">Uppercase letter</li>
+            <li id="req-lower">Lowercase letter</li>
+            <li id="req-number">Number</li>
+            <li id="req-special">Special character</li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="confirm-password">Confirm password</label>
+          <input class="field-input" type="password" id="confirm-password" name="confirm_password"
+                 placeholder="Repeat your password" autocomplete="new-password" />
+          <div id="confirm-password-error" class="field-error hidden">Passwords don't match</div>
+        </div>
+
+        <button id="signup-button" class="btn btn-primary" type="submit" disabled>
+          <span id="signup-text">Create account</span>
+          <span id="signup-spinner" class="spinner hidden"></span>
+        </button>
+
+      </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <div class="auth-link">
+        Already have an account? <a href="{{ url_for('login') }}">Sign in</a>
+      </div>
+    </div>
+
+    <div class="auth-footer">
+      Built by
+      <a href="https://github.com/heynick1337" target="_blank">Nikhil Sahu</a>
+      <span class="sep">·</span>
+      <a href="https://linkedin.com/in/sahunikhil01" target="_blank">LinkedIn</a>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='register.js') }}"></script>
+</body>
+</html>

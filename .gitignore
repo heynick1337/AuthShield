@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+env/
+flask_session/
+*.pyc
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
