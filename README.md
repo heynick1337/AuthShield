@@ -15,6 +15,17 @@ A simple authentication system built with Flask and MySQL. Includes registration
 
 ---
 
+## Screenshots
+
+### Login
+![Login](screenshots/login.png)
+
+### Register
+![Register](screenshots/register.png)
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
 ## Project Structure
 
 ```
