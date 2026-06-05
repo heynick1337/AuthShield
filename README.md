@@ -36,8 +36,9 @@ authshield/
 ├── requirements.txt
 ├── .gitignore
 ├── screenshots/
-│   ├── screenshot1.png
-│   └── screenshot2.png
+│   ├── login.png
+│   ├── register.png
+│   └── dashboard.png
 ├── config/
 │   ├── database_config.py
 │   └── email_config.py
