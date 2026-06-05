@@ -26,11 +26,13 @@ serializer = URLSafeTimedSerializer(app.secret_key)
 EMAIL_REGEX = re.compile(r'^[^\s@]+@[^\s@]+\.[^\s@]+$')
 PASSWORD_REGEX = re.compile(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$')
 
-# --- Rate Limiting Config ---
+# Rate limiting config
+# after 3 failed attempts, user gets a cooldown period
+# after 3 cooldown rounds, account gets fully locked
 MAX_FAILED_ATTEMPTS = 3
 COOLDOWN_MINUTES = 1
 MAX_COOLDOWN_ROUNDS = 3
-ATTEMPT_EXPIRY_MINUTES = 5
+ATTEMPT_EXPIRY_MINUTES = 5  # resets attempt count if idle for 5 mins
 
 
 # --- Database Helpers ---
