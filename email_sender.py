@@ -5,10 +5,8 @@ from config.email_config import EMAIL_ADDRESS, EMAIL_PASSWORD, SMTP_SERVER, SMTP
 
 
 def send_unlock_email(to_email, unlock_link):
-    """
-    Sends a time-bound account unlock email to the user.
-    The unlock link expires in 15 minutes.
-    """
+    # sends unlock email to user, link expires in 15 mins
+    
     subject = "AuthShield — Account Unlock Request"
     body = f"""
     <html>
