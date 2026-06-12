@@ -270,7 +270,7 @@ def login():
                 flash(f"Too many failed attempts from your IP. Wait {COOLDOWN_MINUTES} minute(s) before trying again.", "error")
         else:
             update_login_attempts(attempt_id, failed_attempts, now, cooldown_round)
-            flash("Incorrect password. Please try again.", "error")
+            flash("Incorrect password. Please check your password and try again.", "error")
 
         return redirect(url_for('login'))
 
