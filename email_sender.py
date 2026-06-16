@@ -36,6 +36,6 @@ def send_unlock_email(to_email, unlock_link):
             server.starttls()
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
             server.send_message(msg)
-            print(f"[INFO] Unlock email sent to {to_email}")
+            print(f"[INFO] Unlock email sent to {to_email} at {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     except Exception as e:
         print(f"[ERROR] Could not send unlock email to {to_email}: {e}")
